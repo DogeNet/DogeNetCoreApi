@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogeNetCoreApi", "DogeNetCoreApi\DogeNetCoreApi.csproj", "{ED6DE916-2208-44B8-A519-343A0A1B0CC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogeNetCore.Controllers.lib", "DogeCore.Controllers.Lib\DogeNetCore.Controllers.lib.csproj", "{8D95144E-8F56-457C-A5E4-2019C2B21C77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogeNetCore.DataAccess.lib.implementations", "DogeNetCore.DataAccess.lib.implementations\DogeNetCore.DataAccess.lib.implementations.csproj", "{13AF8FEC-8126-4725-AC77-933C492A292E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogeNetCore.Controllers.lib.implementations", "DogeCore.Controllers.lib.implementations\DogeNetCore.Controllers.lib.implementations.csproj", "{15505566-5D44-45F0-A88E-B2CD88874EED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogeNetCore.DataAccess.lib", "DogeNetCore1.DataAccess.lib\DogeNetCore.DataAccess.lib.csproj", "{B2C07150-8334-49CF-B63A-93D0E33F542F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED6DE916-2208-44B8-A519-343A0A1B0CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6DE916-2208-44B8-A519-343A0A1B0CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6DE916-2208-44B8-A519-343A0A1B0CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6DE916-2208-44B8-A519-343A0A1B0CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D95144E-8F56-457C-A5E4-2019C2B21C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D95144E-8F56-457C-A5E4-2019C2B21C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D95144E-8F56-457C-A5E4-2019C2B21C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D95144E-8F56-457C-A5E4-2019C2B21C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AF8FEC-8126-4725-AC77-933C492A292E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AF8FEC-8126-4725-AC77-933C492A292E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AF8FEC-8126-4725-AC77-933C492A292E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AF8FEC-8126-4725-AC77-933C492A292E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15505566-5D44-45F0-A88E-B2CD88874EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15505566-5D44-45F0-A88E-B2CD88874EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15505566-5D44-45F0-A88E-B2CD88874EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15505566-5D44-45F0-A88E-B2CD88874EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C07150-8334-49CF-B63A-93D0E33F542F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C07150-8334-49CF-B63A-93D0E33F542F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C07150-8334-49CF-B63A-93D0E33F542F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C07150-8334-49CF-B63A-93D0E33F542F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28A1140B-AB4F-44A4-B57D-C3297471EDE2}
+	EndGlobalSection
+EndGlobal
