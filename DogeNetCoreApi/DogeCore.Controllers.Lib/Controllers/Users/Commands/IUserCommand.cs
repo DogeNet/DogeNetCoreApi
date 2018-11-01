@@ -1,8 +1,8 @@
-﻿using DogeCore.Controllers.Lib.Controllers.Users.Responses;
-using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
+﻿using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 
 namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands
 {
@@ -17,9 +17,9 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands
         /// <summary>
         /// Gets a collection of all user details whose Id is specified
         /// </summary>
-        /// <param name="userIds">a collection of users to be obtained</param>
+        /// <param name="usernames">a collection of users to be obtained</param>
         /// <returns>Users</returns>
-        Task<GetUsersResponse> GetUsers(IEnumerable<Guid> userIds);
+        Task<GetUsersResponse> GetUsers(IEnumerable<string> usernames);
 
         /// <summary>
         /// Gets a collection of all user details ordered by score desc
@@ -30,9 +30,9 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands
         /// <summary>
         /// Gets a specific User
         /// </summary>
-        /// <param name="userId">The Users Id</param>
+        /// <param name="username">The Users Id</param>
         /// <returns>User</returns>
-        Task<User> GetUser(Guid userId);
+        Task<GetUserResponse> GetUser(string username);
 
         /// <summary>
         /// Adds a User to the table

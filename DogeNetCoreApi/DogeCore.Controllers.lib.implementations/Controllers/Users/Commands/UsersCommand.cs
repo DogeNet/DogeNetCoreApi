@@ -1,10 +1,10 @@
-﻿using DogeCore.Controllers.Lib.Controllers.Users.Responses;
-using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
+﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
 using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
 using DogeNetCore.DataAccess.lib.UsersRepository;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 
 namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
 {
@@ -32,9 +32,13 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUser(Guid userId)
+        public async Task<GetUserResponse> GetUser(string username)
         {
-            throw new NotImplementedException();
+            var result = await _repository.FindAsync(username);
+            return new GetUserResponse
+            {
+                user = result
+            };
         }
 
         public async Task<GetUsersResponse> GetUsers()
@@ -46,7 +50,7 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
             };
         }
 
-        public Task<GetUsersResponse> GetUsers(IEnumerable<Guid> userIds)
+        public Task<GetUsersResponse> GetUsers(IEnumerable<string> usernames)
         {
             throw new NotImplementedException();
         }

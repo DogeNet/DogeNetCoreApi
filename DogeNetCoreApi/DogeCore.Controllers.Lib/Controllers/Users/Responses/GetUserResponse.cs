@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
 
 namespace DogeNetCore.Controllers.lib.Controllers.Users.Responses
 {
-    public class GetUsersResponse
+    public class GetUserResponse
     {
-        public IEnumerable<User> Users { get; set; }
+        public User user { get; set; }
     }
 }

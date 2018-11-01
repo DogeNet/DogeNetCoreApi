@@ -1,7 +1,6 @@
-﻿using DogeNetCore.DataAccess.lib.UsersRepository.Entities;
+﻿using DogeNetCore.DataAccess.lib.Entities;
 using System;
 using System.ComponentModel.DataAnnotations;
-using DogeNetCore.DataAccess.lib.Entities;
 
 namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities
 {
@@ -13,7 +12,6 @@ namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersReposi
         public string Username { get; set; }
         [Required]
         public int Score { get; set; }
-
 
         public string Key => Username;
     }
