@@ -1,4 +1,4 @@
-﻿using DogeCore.Controllers.Lib.Controllers.Users.Commands;
+﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
 using DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands;
 using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository;
 using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
@@ -27,9 +27,11 @@ namespace DogeNetCoreApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             var connectionString = Configuration["connectionStrings:usersDBConnectionString"];
-            services.AddScoped<IUsersCommand, UsersCommand>();
             services.AddDbContext<UsersContext>(o => o.UseSqlServer(connectionString));
-            services.AddScoped<IUsersRepository<User>, UsersRepositroy>();
+            services.AddScoped<IUsersRepository<User>, UsersRepository>();
+            services.AddScoped<IUsersCommand, UsersCommand>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

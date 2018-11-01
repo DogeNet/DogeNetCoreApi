@@ -1,10 +1,10 @@
 ﻿using DogeCore.Controllers.Lib.Controllers.Users.Responses;
-using DogeNetCore.DataAccess.lib.UsersRepository.Entities;
+using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DogeCore.Controllers.Lib.Controllers.Users.Commands
+namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands
 {
     public interface IUsersCommand
     {
@@ -25,21 +25,21 @@ namespace DogeCore.Controllers.Lib.Controllers.Users.Commands
         /// Gets a collection of all user details ordered by score desc
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<IUser>> GetLeaderboard();
+        Task<IEnumerable<User>> GetLeaderBoard();
 
         /// <summary>
         /// Gets a specific User
         /// </summary>
         /// <param name="userId">The Users Id</param>
         /// <returns>User</returns>
-        Task<IUser> GetUser(Guid userId);
+        Task<User> GetUser(Guid userId);
 
         /// <summary>
         /// Adds a User to the table
         /// </summary>
         /// <param name="user">the user to be added</param>
         /// <returns></returns>
-        Task AddUser(IUser user);
+        Task AddUser(User user);
 
         /// <summary>
         /// Removes the specified user from the table

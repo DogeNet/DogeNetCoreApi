@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework
 {
-    public class BaseRespository<TEntity, TContext, TKey> : IRepository<TEntity,TKey> where TEntity : class, IEntity<TKey> where TContext : DbContext
+    public abstract class BaseRepository<TEntity, TKey> : IRepository<TEntity,TKey>
+        where TEntity : class, IEntity<TKey>
+        where TKey : class
     {
-        protected readonly TContext Context;
+        protected readonly DbContext Context;
 
-        public BaseRespository(TContext context)
+        protected BaseRepository(DbContext context)
         {
             Context = context;
         }
@@ -25,12 +27,12 @@ namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework
         public async Task<TEntity> FindAsync(TKey key)
         {
             var query = from entity in Context.Set<TEntity>()
-                         where entity.Key.Equals(key)
+                         where entity.Key == key
                          select entity;
             return await query.FirstAsync();           
         }
 
-        public Task<IQueryable<TEntity>> FindAsync(IEnumerable<string> keys)
+        public Task<IQueryable<TEntity>> FindAsync(IEnumerable<TKey> keys)
         {
             throw new NotImplementedException();
         }

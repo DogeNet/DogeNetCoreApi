@@ -1,7 +1,7 @@
-﻿using DogeCore.Controllers.Lib.Controllers.Users.Commands;
-using DogeCore.Controllers.Lib.Controllers.Users.Responses;
+﻿using DogeCore.Controllers.Lib.Controllers.Users.Responses;
+using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
+using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
 using DogeNetCore.DataAccess.lib.UsersRepository;
-using DogeNetCore.DataAccess.lib.UsersRepository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,9 +10,9 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
 {
     public class UsersCommand : IUsersCommand
     {
-        private readonly IUsersRepository<IUser> _repository;
+        private readonly IUsersRepository<User> _repository;
 
-        public UsersCommand(IUsersRepository<IUser> repository)
+        public UsersCommand(IUsersRepository<User> repository)
         {
             _repository = repository;
         }
@@ -22,17 +22,17 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
             throw new NotImplementedException();
         }
 
-        public Task AddUser(IUser user)
+        public Task AddUser(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<IUser>> GetLeaderboard()
+        public Task<IEnumerable<User>> GetLeaderBoard()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IUser> GetUser(Guid userId)
+        public Task<User> GetUser(Guid userId)
         {
             throw new NotImplementedException();
         }

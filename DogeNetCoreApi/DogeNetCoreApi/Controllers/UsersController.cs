@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DogeCore.Controllers.Lib.Controllers.Users.Commands;
-using DogeCore.Controllers.Lib.Controllers.Users.Responses;
+﻿using DogeCore.Controllers.Lib.Controllers.Users.Responses;
+using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace DogeNetCoreApi.Controllers
 {

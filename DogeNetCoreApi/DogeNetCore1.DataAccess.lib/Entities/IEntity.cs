@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DogeNetCore.DataAccess.lib.Entities
 {
-    public interface IEntity<TKey>
+    public interface IEntity<out TKey>
     {
         [Key]
         TKey Key { get; }

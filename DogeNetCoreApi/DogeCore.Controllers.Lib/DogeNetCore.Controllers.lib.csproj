@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DogeNetCore.DataAccess.lib.implementations\DogeNetCore.DataAccess.lib.implementations.csproj" />
     <ProjectReference Include="..\DogeNetCore1.DataAccess.lib\DogeNetCore.DataAccess.lib.csproj" />
   </ItemGroup>
 
