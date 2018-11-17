@@ -5,16 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Users\Data\" />
-    <Folder Include="Controllers\Users\Requests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DogeNetCore.DataAccess.lib.implementations\DogeNetCore.DataAccess.lib.implementations.csproj" />
     <ProjectReference Include="..\DogeNetCore1.DataAccess.lib\DogeNetCore.DataAccess.lib.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
+      <HintPath>C:\Users\Toby\.nuget\packages\microsoft.aspnetcore.mvc.abstractions\2.1.3\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+      <HintPath>C:\Users\Toby\.nuget\packages\microsoft.aspnetcore.mvc.core\2.1.3\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>

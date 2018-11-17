@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
+using DogeNetCore.Controllers.lib.Controllers.Users.Data;
 
 namespace DogeNetCore.Controllers.lib.Controllers.Users.Responses
 {

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DogeNetCore.DataAccess.lib.UserRepository.Entities;
 
-namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities
+namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UserRepository.Entities
 {
     //For testing and debugging
     public static class UsersContextExtensions
     {
-        public static void EnsureSeedDataForContext(this UsersContext context)
+        public static void EnsureSeedDataForContext(this UserContext context)
         {
             context.Users.RemoveRange(context.Users);
             context.SaveChanges();

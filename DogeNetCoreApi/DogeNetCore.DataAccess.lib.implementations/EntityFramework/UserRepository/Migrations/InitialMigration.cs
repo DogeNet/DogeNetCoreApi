@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Migrations
+namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UserRepository.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -17,7 +17,7 @@ namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersReposi
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                     table.UniqueConstraint("UK_Username", x => x.Username);
                 });
         }

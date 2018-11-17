@@ -1,30 +1,31 @@
-﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
-using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
-using DogeNetCore.DataAccess.lib.UsersRepository;
+﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users;
+using DogeNetCore.Controllers.lib.Controllers.Users.Requests;
+using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
+using DogeNetCore.DataAccess.lib.UserRepository;
+using DogeNetCore.DataAccess.lib.UserRepository.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
 {
     public class UsersCommand : IUsersCommand
     {
-        private readonly IUsersRepository<User> _repository;
+        private readonly IUserRepository<User> _repository;
 
-        public UsersCommand(IUsersRepository<User> repository)
+        public UsersCommand(IUserRepository<User> repository)
         {
             _repository = repository;
         }
 
-        public Task<int> AddScoreToUser(string username, int toAdd)
+        public async Task AddUser(AddUserRequest request)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task AddUser(User user)
-        {
-            throw new NotImplementedException();
+            var user = new User
+            {
+                Username = request.Username
+            };
+            await _repository.AddAsync(user);
         }
 
         public Task<IEnumerable<User>> GetLeaderBoard()
@@ -37,16 +38,30 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
             var result = await _repository.FindAsync(username);
             return new GetUserResponse
             {
-                user = result
+                User = new lib.Controllers.Users.Data.User
+                {
+                    Score = result.Score,
+                    Username = result.Username
+                }
             };
         }
 
         public async Task<GetUsersResponse> GetUsers()
         {
             var result =  await _repository.GetAll();
+            var users = new List<lib.Controllers.Users.Data.User>();
+            foreach (var user in result)
+            {
+                users.Add(new lib.Controllers.Users.Data.User
+                {
+                    Username = user.Username,
+                    Score = user.Score
+                });
+            }
+
             return new GetUsersResponse
             {
-                Users = result
+                Users = users
             };
         }
 
@@ -65,14 +80,19 @@ namespace DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands
             throw new NotImplementedException();
         }
 
-        public Task UpdateUsername(string currentUsername, string newUsername)
+        public async Task<bool> UpdateUsername(string currentUsername, string newUsername)
         {
-            throw new NotImplementedException();
+            return await _repository.UpdateUsername(currentUsername, newUsername);
         }
 
-        public Task UpdateUserScore(string username, int newScore)
+        public async Task<bool> UpdateUserScore(string username, int newScore)
         {
-            throw new NotImplementedException();
+            return await _repository.UpdateScore(username, newScore);
         }
-    }
+
+        public async Task<bool> AddScoreToUser(string username, int toAdd)
+        {
+            return await _repository.AddScore(username, toAdd);
+        }
+}
 }

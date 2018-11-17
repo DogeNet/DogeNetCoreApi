@@ -1,7 +1,8 @@
-﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands;
+﻿using DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users;
+using DogeNetCore.Controllers.lib.Controllers.Users.Requests;
+using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 
 namespace DogeNetCoreApi.Controllers
 {
@@ -26,5 +27,29 @@ namespace DogeNetCoreApi.Controllers
         {
             return await _command.GetUser(username);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser([FromBody]AddUserRequest request)
+        {
+            await _command.AddUser(request);
+            return Ok();
+        }
+
+        [HttpPatch("{username}/Update")]
+        public async Task<IActionResult> UpdateScore(string username, [FromBody] UpdateScoreRequest request)
+        {
+            if (await _command.UpdateUserScore(username, request.Score))
+                return Ok();
+            return NotFound();
+        }
+
+        [HttpPatch("{username}/Add")]
+        public async Task<IActionResult> AddScore(string username, [FromBody] AddScoreRequest request)
+        {
+            if (await _command.AddScoreToUser(username, request.Score))
+                return Ok();
+            return NotFound();
+        }
+
     }
 }

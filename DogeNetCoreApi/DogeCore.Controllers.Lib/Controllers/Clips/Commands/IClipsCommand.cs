@@ -1,26 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DogeNetCore.Controllers.lib.Controllers.Users.Requests;
+﻿using DogeNetCore.Controllers.lib.Controllers.Clips.Requests;
+using DogeNetCore.Controllers.lib.Controllers.Clips.Responses;
 using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using DogeNetCore.DataAccess.lib.UserRepository.Entities;
-using Microsoft.AspNetCore.Mvc;
 
-namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
+namespace DogeNetCore.Controllers.lib.Controllers.Clips.Commands
 {
-    public interface IUsersCommand
+    public interface IClipsCommand
     {
         /// <summary>
         /// Gets a collection of all user details
         /// </summary>
         /// <returns>Users</returns>
-        Task<GetUsersResponse> GetUsers();
+        Task<GetClipsResponse> GetClips();
 
         /// <summary>
         /// Gets a collection of all user details whose Id is specified
         /// </summary>
         /// <param name="usernames">a collection of users to be obtained</param>
         /// <returns>Users</returns>
-        Task<GetUsersResponse> GetUsers(IEnumerable<string> usernames);
+        Task<GetClipsResponse> GetUsers(IEnumerable<string> usernames);
 
         /// <summary>
         /// Gets a collection of all user details ordered by score desc
@@ -29,18 +29,17 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
         Task<IEnumerable<User>> GetLeaderBoard();
 
         /// <summary>
-        /// Gets a specific User
+        /// Gets a specific Clip
         /// </summary>
-        /// <param name="username">The Users Id</param>
-        /// <returns>User</returns>
-        Task<GetUserResponse> GetUser(string username);
+        /// <returns>Clip</returns>
+        Task<GetClipsResponse> GetClip(string name);
 
         /// <summary>
-        /// Adds a User to the table
+        /// Adds a clip to the table
         /// </summary>
-        /// <param name="user">the user to be added</param>
+        /// <param name="clip">the clip to be added</param>
         /// <returns></returns>
-        Task AddUser(AddUserRequest user);
+        Task AddClip(AddClipRequest clip);
 
         /// <summary>
         /// Removes the specified user from the table
@@ -55,7 +54,7 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
         /// <param name="currentUsername"></param>
         /// <param name="newUsername"></param>
         /// <returns></returns>
-        Task<bool> UpdateUsername(string currentUsername, string newUsername);
+        Task UpdateUsername(string currentUsername, string newUsername);
 
         /// <summary>
         /// Adds the number to the specified users score, can be negative
@@ -63,7 +62,7 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
         /// <param name="username"></param>
         /// <param name="toAdd">number to add, can be negative</param>
         /// <returns>the new score</returns>
-        Task<bool> AddScoreToUser(string username, int toAdd);
+        Task<int> AddScoreToUser(string username, int toAdd);
 
         /// <summary>
         /// Updates the specified user's score to a specific value
@@ -71,7 +70,7 @@ namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
         /// <param name="username"></param>
         /// <param name="newScore"></param>
         /// <returns></returns>
-        Task<bool> UpdateUserScore(string username, int newScore);
+        Task UpdateUserScore(string username, int newScore);
 
         bool Save();
     }

@@ -1,8 +1,8 @@
-﻿using DogeNetCore.DataAccess.lib.Entities;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using DogeNetCore.DataAccess.lib.Entities;
 
-namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities
+namespace DogeNetCore.DataAccess.lib.UserRepository.Entities
 {
     public class User : IEntity<string>
     {

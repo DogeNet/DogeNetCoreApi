@@ -1,17 +1,15 @@
-﻿using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Entities;
+﻿using System;
+using DogeNetCore.DataAccess.lib.implementations.EntityFramework.UserRepository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
 
-namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UsersRepository.Migrations
+namespace DogeNetCore.DataAccess.lib.implementations.EntityFramework.UserRepository.Migrations
 {
-    [DbContext(typeof(UsersContext))]
-    [Migration("20161007150914_InitialMigration")]
-    public partial class InitialMigration
+    [DbContext(typeof(UserContext))]
+    public class UsersContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
