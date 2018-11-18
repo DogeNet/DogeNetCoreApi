@@ -10,7 +10,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet restore
+- script: dotnet restore DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
   displayName: dotnet restore
-- script: dotnet build
+- script: dotnet build DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
 
