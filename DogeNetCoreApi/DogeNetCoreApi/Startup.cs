@@ -33,7 +33,7 @@ namespace DogeNetCoreApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             var userDbConnectionString = Configuration["connectionStrings:usersDBConnectionString"];
-            //var clipDbConnectionString = Configuration["connectionStrings:localClips"];
+            //var clipDbConnectionString = Configuration["connectionStrings:clipsDBConnectionString"];
             services.AddDbContext<UserContext>(o => o.UseSqlServer(userDbConnectionString));
             //services.AddDbContext<ClipContext>(o => o.UseSqlServer(clipDbConnectionString));
             services.AddScoped<IUserRepository<User>, UserRepository>();
