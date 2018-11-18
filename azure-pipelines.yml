@@ -15,3 +15,6 @@ steps:
 - script: Update-Package -reinstall
 - script: dotnet build DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
 - task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
