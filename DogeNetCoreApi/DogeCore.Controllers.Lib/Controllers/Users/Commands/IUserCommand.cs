@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DogeNetCore.Controllers.lib.Controllers.Users.Requests;
+﻿using DogeNetCore.Controllers.lib.Controllers.Users.Requests;
 using DogeNetCore.Controllers.lib.Controllers.Users.Responses;
 using DogeNetCore.DataAccess.lib.UserRepository.Entities;
-using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users
 {
