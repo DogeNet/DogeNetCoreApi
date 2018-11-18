@@ -12,4 +12,5 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration) DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
   displayName: 'dotnet build $(buildConfiguration)'
+- task: CopyFiles@1
 - task: PublishBuildArtifacts@1
