@@ -12,5 +12,6 @@ variables:
 steps:
 - script: dotnet restore DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
   displayName: dotnet restore
+- script: Update-Package -reinstall
 - script: dotnet build DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
-
+- task: PublishBuildArtifacts@1
