@@ -10,6 +10,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet publish --configuration $(buildConfiguration) DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj
-  displayName: 'dotnet publish $(buildConfiguration)'
+- script: dotnet publish DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet publish $(buildConfiguration) to $(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
