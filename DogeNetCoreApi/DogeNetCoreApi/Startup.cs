@@ -60,7 +60,7 @@ namespace DogeNetCoreApi
             }
 
             app.UseMvc();
-            userContext.EnsureSeedDataForContext();
+            //userContext.EnsureSeedDataForContext();
             //clipContext.EnsureSeedDataForContext();            
         }
     }
