@@ -15,19 +15,27 @@ namespace DogeNetCoreApi.Controllers
         {
             _command = command;
         }
-        // GET api/values
+        /// <summary>
+        /// Gets a list of all users
+        /// </summary>
         [HttpGet]
         public async Task<GetUsersResponse> GetUsers()
         {
             return await _command.GetUsers();
         }
 
+        /// <summary>
+        /// Gets a specific users details based on username
+        /// </summary>
         [HttpGet("{username}")]
         public async Task<GetUserResponse> GetUser(string username)
         {
             return await _command.GetUser(username);
         }
 
+        /// <summary>
+        /// Adds a user to the database
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody]AddUserRequest request)
         {
@@ -35,6 +43,9 @@ namespace DogeNetCoreApi.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Set the specified users score to the specified value
+        /// </summary>
         [HttpPatch("{username}/Update")]
         public async Task<IActionResult> UpdateScore(string username, [FromBody] UpdateScoreRequest request)
         {
@@ -42,7 +53,9 @@ namespace DogeNetCoreApi.Controllers
                 return Ok();
             return NotFound();
         }
-
+        /// <summary>
+        /// Adds the specified value to the users score
+        /// </summary>
         [HttpPatch("{username}/Add")]
         public async Task<IActionResult> AddScore(string username, [FromBody] AddScoreRequest request)
         {
