@@ -9,6 +9,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+trigger:
+- master
 steps:
 - script: dotnet publish DogeNetCoreApi/DogeNetCoreApi/DogeNetCoreApi.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
   displayName: 'dotnet publish $(buildConfiguration) to $(Build.ArtifactStagingDirectory)'
