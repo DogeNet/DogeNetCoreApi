@@ -1,4 +1,7 @@
-﻿using DogeNetCore.Controllers.lib.Controllers.Clips.Commands;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using DogeNetCore.Controllers.lib.Controllers.Clips.Commands;
 using DogeNetCore.Controllers.lib.Controllers.Users.Commands.Users;
 using DogeNetCore.Controllers.lib.implementations.Controllers.Clips.Commands;
 using DogeNetCore.Controllers.lib.implementations.Controllers.Users.Commands;
@@ -16,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace DogeNetCoreApi
 {
@@ -41,6 +45,13 @@ namespace DogeNetCoreApi
             services.AddScoped<IUsersCommand, UsersCommand>();
             //services.AddScoped<IClipsCommand, ClipsCommand>();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "DogeNetCore Api", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
         }
 
@@ -59,6 +70,12 @@ namespace DogeNetCoreApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "DogeNetCoreApi V1");
+                c.RoutePrefix = string.Empty;
+            });
             app.UseMvc();
             //userContext.EnsureSeedDataForContext();
             //clipContext.EnsureSeedDataForContext();            
